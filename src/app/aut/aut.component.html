@@ -1,0 +1,23 @@
+
+<div class="logtxt">
+<img src="../../assets/unibo.png">
+  <h1>HEART</h1>
+  <h2>Sistema Web gestione pazienti cardiopatici Policlinico S.Orsola-Malpighi</h2>
+  <h3>D.I.S.I.</h3>
+  <br>
+<br>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <label>
+    PID:
+    <input type="text" formControlName="pid">
+  </label>
+
+  <label>
+    Password:
+    <input type="password" formControlName="pwd">
+  </label>
+
+<button type="submit" [disabled]="!userForm.valid">Login</button>
+
+</form>
+</div>

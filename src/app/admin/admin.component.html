@@ -1,0 +1,15 @@
+<app-top-bar></app-top-bar>
+<div class="logtxt">
+  <h5>Inserire PID dipendente per modifica o inserimento</h5>
+<form [formGroup]="utilForm" (ngSubmit)="onSubmit()" >
+
+  <label>
+    PID:
+    <input type="text" formControlName="pid" required>
+  </label>
+  <button type="submit" [disabled]="!utilForm.valid">Cerca</button>
+  </form>
+
+  <app-mdfutl *ngIf="src&&this.util!=null" [util]="util"></app-mdfutl>
+  <app-isrutl *ngIf="src&&this.util==null"></app-isrutl>
+</div>

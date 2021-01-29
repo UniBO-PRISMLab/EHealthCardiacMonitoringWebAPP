@@ -1,0 +1,39 @@
+<app-top-bar></app-top-bar>
+<div>
+<table>
+  <tr>
+<td *ngIf="this.user">PID: {{this.user.PID}}</td>
+</tr>
+<tr>
+<td *ngIf="this.user">Cognome: {{this.user.cognome}}</td>
+</tr>
+<tr>
+<td *ngIf="this.user">Nome: {{this.user.nome}}</td>
+</tr>
+<tr>
+<td *ngIf="this.user">Categoria: {{this.user.Categoria}}</td>
+</tr>
+<tr>
+<td *ngIf="this.user">Email: {{this.user.Email}}</td>
+</tr>
+<tr>
+<td *ngIf="this.user">Numero telefono: {{this.user.num_tel}}</td>
+</tr>
+</table>
+
+
+<form [formGroup]="uppwdForm" (ngSubmit)="onSubmit()">
+  <label>
+    nuova password:
+    <input type="password" formControlName="pwd" required>
+  </label>
+
+  <label>
+    nuova password:
+    <input type="password" formControlName="rpwd" required>
+  </label>
+
+  <button type="submit" [disabled]="!uppwdForm.valid">Cambia</button>
+
+  </form>
+</div>

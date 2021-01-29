@@ -1,0 +1,224 @@
+    <h1>Inserimento Paziente</h1>
+    <form (ngSubmit)="onSubmit()" #pazForm="ngForm">
+      <div class="row">
+         <div class="col-25">
+        <label for="cnome">Cognome</label>
+      </div>
+        <div class="col-75">
+        <input type="text" class="form-control" id="cnome"
+               required
+               [(ngModel)]="paz.cognome" name="cnome"
+               #cnome="ngModel" (ngModelChange)="paz.cognome=$event.toUpperCase()">
+
+        <div [hidden]="cnome.valid || cnome.pristine"
+             class="alert alert-danger">
+          Cognome necessario
+        </div>
+      </div>
+      </div>
+
+      <div class="row">
+         <div class="col-25">
+        <label for="name">Nome</label>
+      </div>
+        <div class="col-75">
+        <input type="text" class="form-control" id="name"
+               required
+               [(ngModel)]="paz.nome" name="name"
+               #name="ngModel" (ngModelChange)="paz.nome=$event.toUpperCase()">
+        <div [hidden]="name.valid || name.pristine"
+             class="alert alert-danger">
+          Nome necessario
+        </div>
+      </div>
+      </div>
+
+      <div class="row">
+         <div class="col-25">
+        <label for="ln">Luogo Nascita</ label>
+        </div>
+          <div class="col-75">
+        <input type="text" class="form-control" id="ln"
+               required
+               [(ngModel)]="paz.luogo_nascita" name="ln"
+               #ln="ngModel" (ngModelChange)="paz.luogo_nascita=$event.toUpperCase()">
+        <div [hidden]="ln.valid || ln.pristine"
+             class="alert alert-danger">
+          Luogo Nascita necessario
+        </div>
+      </div>
+      </div>
+
+      <div class="row">
+         <div class="col-25">
+        <label for="rs">Residenza</ label>
+        </div>
+          <div class="col-75">
+        <input type="text" class="form-control" id="rs"
+               required
+               [(ngModel)]="paz.residenza" name="rs"
+               #rs="ngModel" (ngModelChange)="paz.residenza=$event.toUpperCase()">
+        <div [hidden]="rs.valid || rs.pristine"
+             class="alert alert-danger">
+          Residenza necessaria
+        </div>
+      </div>
+</div>
+<div class="row">
+   <div class="col-25">
+        <label for="dn">Data Nascita</ label>
+        </div>
+          <div class="col-75">
+        <input type="date" class="form-control" id="dn"
+               required
+               [(ngModel)]="paz.data_nascita" name="dn"
+               #dn="ngModel">
+        <div [hidden]="dn.valid || dn.pristine"
+             class="alert alert-danger">
+          Data Nascita necessaria (gg/mm/aaaa)
+        </div>
+      </div>
+</div>
+<div class="row">
+   <div class="col-25">
+        <label for="tel">Telefono</label>
+      </div>
+        <div class="col-75">
+        <input type="text" class="form-control" id="tel"
+               required
+               [(ngModel)]="paz.num_tel" name="tel"
+               #tel="ngModel">
+        <div [hidden]="tel.valid || tel.pristine"
+             class="alert alert-danger">
+          Numero Telefono necessario
+        </div>
+      </div>
+</div>
+<div class="row">
+   <div class="col-25">
+              <label for="ss">Sesso</label>
+            </div>
+              <div class="col-75">
+              <select class="form-control" id="ss"
+                      required
+                      [(ngModel)]="paz.sesso" name="ss"
+                      #ss="ngModel">
+                <option *ngFor="let cat of sss" [value]="cat">{{cat}}</option>
+              </select>
+              <div [hidden]="ss.valid || ss.pristine" class="alert alert-danger">
+              Sesso necessario
+              </div>
+            </div>
+</div>
+<div class="row">
+   <div class="col-25">
+              <label for="ps">Peso</label>
+            </div>
+              <div class="col-75">
+              <input type="number" class="form-control" id="ps"
+                     required
+                     [(ngModel)]="paz.peso" name="ps"
+                     #ps="ngModel">
+              <div [hidden]="ps.valid || ps.pristine"
+                   class="alert alert-danger">
+                Peso necessario
+              </div>
+            </div>
+</div>
+<div class="row">
+   <div class="col-25">
+              <label for="al">Altezza</label>
+            </div>
+              <div class="col-75">
+              <input type="number" class="form-control" id="al"
+                     required
+                     [(ngModel)]="paz.altezza" name="al"
+                     #al="ngModel">
+              <div [hidden]="al.valid || al.pristine"
+                   class="alert alert-danger">
+                Altezza necessaria
+              </div>
+            </div>
+</div>
+<div class="row">
+   <div class="col-25">
+              <label for="clN">Classe NYHA</label>
+            </div>
+              <div class="col-75">
+              <input type="number" class="form-control" id="clN"
+                     required
+                     [(ngModel)]="paz.class_NYHA" name="clN"
+                     #clN="ngModel">
+              <div [hidden]="clN.valid || clN.pristine"
+                   class="alert alert-danger">
+                Classe NYHA necessaria
+              </div>
+            </div>
+</div>
+<div class="row">
+   <div class="col-25">
+              <label for="clI">Classe INTERMACS</label>
+            </div>
+              <div class="col-75">
+              <input type="number" class="form-control" id="clI"
+                     required
+                     [(ngModel)]="paz.class_INTERMACS" name="clI"
+                     #clI="ngModel">
+              <div [hidden]="clI.valid || clI.pristine"
+                   class="alert alert-danger">
+                Classe INTERMACS necessaria
+              </div>
+            </div>
+</div>
+<div class="row">
+   <div class="col-25">
+                    <label for="tp">Tipologia</label>
+                  </div>
+                    <div class="col-75">
+                    <select class="form-control" id="tp"
+                            required
+                            [(ngModel)]="paz.tipologia" name="tp"
+                            #tp="ngModel">
+                      <option *ngFor="let cat of tplg" [value]="cat">{{cat}}</option>
+                    </select>
+                    <div [hidden]="tp.valid || tp.pristine" class="alert alert-danger">
+                    Tipologia necessaria
+                    </div>
+                  </div>
+</div>
+
+                  <div class="row">
+                     <div class="col-25">
+                          <label for="gr">Gravità</label>
+                        </div>
+                          <div class="col-75">
+                          <select class="form-control" id="gr"
+                                  required
+                                  [(ngModel)]="paz.class_gravita" name="gr"
+                                  #gr="ngModel">
+                            <option *ngFor="let cat of clgr" [value]="cat">{{cat}}</option>
+                          </select>
+                          <div [hidden]="gr.valid || gr.pristine" class="alert alert-danger">
+                          Gravità necessaria
+                          </div>
+                        </div>
+</div>
+                        <div class="row">
+                           <div class="col-25">
+                          <label for="pm">PID Medico</label>
+                        </div>
+                          <div class="col-75">
+                          <select class="form-control" id="pm"
+                                 required
+                                 [(ngModel)]="paz.PID_medico" name="pm"
+                                 #pm="ngModel" (ngModelChange)="paz.PID_medico=$event.toUpperCase()">
+                          <option *ngFor="let cat of md" [value]="cat">{{cat}}</option>
+                          </select>
+                          <div [hidden]="pm.valid || pm.pristine"
+                               class="alert alert-danger">
+                            PID Medico necessario
+                          </div>
+                        </div>
+</div>
+            <button type="submit" class="btn btn-success" [disabled]="!pazForm.form.valid">Salva</button>
+</form>

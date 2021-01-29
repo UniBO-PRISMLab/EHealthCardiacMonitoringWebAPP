@@ -1,0 +1,89 @@
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+
+  <ng-container matColumnDef="ID">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let user"> {{user.ID}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="ID_paz" style="width:20px;">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef> ID Paz </th>
+    <td mat-cell *matCellDef="let user"> {{user.ID_paz}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="data">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> data </th>
+    <td mat-cell *matCellDef="let user"> {{user.data}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="peso">
+    <th mat-header-cell *matHeaderCellDef> peso  </th>
+    <td mat-cell *matCellDef="let user"> {{user.peso}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="frequenza">
+    <th mat-header-cell *matHeaderCellDef> frequenza  </th>
+    <td mat-cell *matCellDef="let user"> {{user.frequenza}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="pressione">
+    <th mat-header-cell *matHeaderCellDef> pressione  </th>
+    <td mat-cell *matCellDef="let user"> {{user.pressione}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="passi">
+    <th mat-header-cell *matHeaderCellDef> passi </th>
+    <td mat-cell *matCellDef="let user"> {{user.passi}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="rpm">
+    <th mat-header-cell *matHeaderCellDef> rpm </th>
+    <td mat-cell *matCellDef="let user"> {{user.rpm}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="watt">
+    <th mat-header-cell *matHeaderCellDef>   watt   </th>
+    <td mat-cell *matCellDef="let user"> {{user.watt}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="flusso">
+    <th mat-header-cell *matHeaderCellDef>   flusso   </th>
+    <td mat-cell *matCellDef="let user"> {{user.flusso}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="picco">
+    <th mat-header-cell *matHeaderCellDef> picco </th>
+    <td mat-cell *matCellDef="let user"> {{user.picco}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="depressione">
+    <th mat-header-cell *matHeaderCellDef> depressione </th>
+    <td mat-cell *matCellDef="let user"> {{user.depressione}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="PI">
+    <th mat-header-cell *matHeaderCellDef>  PI   </th>
+    <td mat-cell *matCellDef="let user"> {{user.PI}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="allarme">
+    <th mat-header-cell *matHeaderCellDef>  allarme   </th>
+    <td mat-cell *matCellDef="let user"> {{user.allarme}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="allarme_aut">
+    <th mat-header-cell *matHeaderCellDef> allarme_aut </th>
+    <td mat-cell *matCellDef="let user"> {{user.allarme_aut}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="nota">
+    <th mat-header-cell *matHeaderCellDef> nota </th>
+    <td mat-cell *matCellDef="let user"> {{user.nota}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let row; columns: columnsToDisplay;" class="example-element-row"
+      (click)="onRowClicked(row)"></tr>
+</table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>

@@ -1,0 +1,130 @@
+    <h4>Inserisci Utilizzatore</h4>
+    <form class="frmdu"(ngSubmit)="onSubmit()" #utlForm="ngForm">
+      <div class="row">
+         <div class="col-25">
+        <label for="pid">PID: </label>
+      </div>
+        <div class="col-75">
+        <input type="text" class="form-control" id="pid"
+               required
+               [(ngModel)]="util.PID" name="pid"
+               #pid="ngModel" (ngModelChange)="util.PID=$event.toUpperCase()">
+             </div>
+             </div>
+        <h6 [hidden]="pid.valid || pid.pristine"
+             class="alert alert-danger">
+          PID necessario
+        </h6>
+      <br>
+
+      <div class="row">
+         <div class="col-25">
+        <label for="cnome">Cognome: </label>
+      </div>
+        <div class="col-75">
+        <input type="text" class="form-control" id="cnome"
+               required
+               [(ngModel)]="util.cognome" name="cnome"
+               #cnome="ngModel" (ngModelChange)="util.cognome=$event.toUpperCase()">
+             </div>
+             </div>
+        <h6 [hidden]="cnome.valid || cnome.pristine"
+             class="alert alert-danger">
+          Cognome necessario
+        </h6>
+      <br>
+
+      <div class="row">
+         <div class="col-25">
+        <label for="name">Nome: </label>
+      </div>
+        <div class="col-75">
+        <input type="text" class="form-control" id="name"
+               required
+               [(ngModel)]="util.nome" name="name"
+               #name="ngModel" (ngModelChange)="util.nome=$event.toUpperCase()">
+             </div>
+             </div>
+        <h6 [hidden]="name.valid || name.pristine"
+             class="alert alert-danger">
+          Nome necessario
+        </h6>
+      <br>
+
+
+
+
+      <div class="row">
+         <div class="col-25">
+        <label for="mail">Mail: </ label>
+        </div>
+          <div class="col-75">
+        <input type="text" class="form-control" id="mail"
+               required
+               [(ngModel)]="util.Email" name="mail"
+               #mail="ngModel" (ngModelChange)="util.Email=$event.toUpperCase()">
+             </div>
+             </div>
+        <h6 [hidden]="mail.valid || mail.pristine"
+             class="alert alert-danger">
+          E-mail necessaria
+        </h6>
+      <br>
+
+      <div class="row">
+         <div class="col-25">
+        <label for="tel">Telefono:  </label>
+      </div>
+        <div class="col-75">
+        <input type="text" class="form-control" id="tel"
+               required
+               [(ngModel)]="util.num_tel" name="tel"
+               #tel="ngModel">
+             </div>
+             </div>
+        <h6 [hidden]="tel.valid || tel.pristine"
+             class="alert alert-danger">
+          Numero Telefono necessario
+        </h6>
+      <br>
+
+      <div class="row">
+         <div class="col-25">
+              <label for="power">Categoria Utilizzatore:  </label>
+            </div>
+              <div class="col-75">
+              <select class="form-control" id="power"
+                      required
+                      [(ngModel)]="util.Categoria" name="power"
+                      #power="ngModel">
+
+                <option *ngFor="let cat of utltp" [value]="cat">{{cat}}</option>
+              </select>
+            </div>
+            </div>
+              <h6 [hidden]="power.valid || power.pristine" class="alert alert-danger">
+              Categoria necessaria
+              </h6>
+            <br>
+
+            <div class="row">
+               <div class="col-25">
+              <label for="pw">Password: </label>
+            </div>
+              <div class="col-75">
+              <input type="text" class="form-control" id="pw"
+                     required
+                     [(ngModel)]="util.Password" name="pw"
+                     #pw="ngModel">
+                   </div>
+                   </div>
+              <h6 [hidden]="pw.valid || pw.pristine"
+                   class="alert alert-danger">
+                Password necessaria
+              </h6>
+            <br>
+
+
+            <button type="submit" class="btn btn-success" [disabled]="!utlForm.form.valid">Salva</button>
+
+          </form>

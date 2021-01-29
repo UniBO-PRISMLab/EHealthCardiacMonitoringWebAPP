@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+
+    .container {
+      margin: 5px;
+      width: auto;
+      height: 380px;
+      white-space: nowrap;
+    }
+
+    .item {
+      width: auto;
+    }
+
+  .inline {
+  vertical-align: middle;
+  overflow-x: scroll;
+}
+.inline-item {
+  display: inline-block;
+  vertical-align: middle;
+  height: 80px;
+  margin-right: -4px;
+}
+
+div.ex3 {
+  height: 300px;
+  width: 15%;
+  font-size:80%;
+  overflow-y: auto;
+  float:left;
+}
+
+div.ex2 {
+  height: 300px;
+  width: 15%;
+  font-size:80%;
+  overflow-y: auto;
+  float:right;
+}
+
+div.center {
+  height: 300px;
+  width: 70%;
+  overflow-y: auto;
+  float:left;
+}
+
+</style>
+</head>
+<body>
+  <div class="container inline">
+    <h3>Parametri ultimi 30 giorni</h3>
+    <div class="item inline-item">
+      <div style="display: block">
+        <canvas baseChart width=auto height=300px
+          [datasets]="pressChartData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [colors]="lineChartColors"
+          [plugins]="barChartPlugins"
+          [legend]="barChartLegend"
+          [chartType]="barChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)">
+        </canvas>
+      </div>
+    </div>
+    <div class="item inline-item">
+      <div style="display: block;">
+      <canvas baseChart width=auto height=300px
+                  [datasets]="pesoChartData"
+                  [labels]="lineChartLabels"
+                  [options]="lineChartOptions"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+    <div class="item inline-item">
+      <div style="display: block;">
+      <canvas baseChart width=auto height=300px
+                  [datasets]="freqChartData"
+                  [labels]="lineChartLabels"
+                  [options]="lineChartOptions"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+    <div class="item inline-item">
+      <div style="display: block;">
+      <canvas baseChart width=auto height=300px
+                  [datasets]="passiChartData"
+                  [labels]="lineChartLabels"
+                  [options]="lineChartOptions"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+    <div class="item inline-item">
+      <div style="display: block;">
+      <canvas baseChart width=auto height=300px
+                  [datasets]="rpmChartData"
+                  [labels]="lineChartLabels"
+                  [options]="lineChartOptions"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+    <div class="item inline-item">
+      <div style="display: block;">
+      <canvas baseChart width=auto height=300px
+                  [datasets]="wChartData"
+                  [labels]="lineChartLabels"
+                  [options]="lineChartOptions"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+    <div class="item inline-item">
+      <div style="display: block;">
+      <canvas baseChart width=auto height=300px
+                  [datasets]="flChartData"
+                  [labels]="lineChartLabels"
+                  [options]="lineChartOptions"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+    <div class="item inline-item">
+      <div style="display: block;">
+      <canvas baseChart width=auto height=300px
+                  [datasets]="piccoChartData"
+                  [labels]="lineChartLabels"
+                  [options]="lineChartOptions"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+    <div class="item inline-item">
+      <div style="display: block;">
+      <canvas baseChart width=auto height=300px
+                  [datasets]="PIChartData"
+                  [labels]="lineChartLabels"
+                  [options]="lineChartOptions"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="ex3" style="background:silver;color:black">
+      <mat-list>
+         <h3 mat-subheader>Note Rilevazioni</h3>
+         <mat-list-item *ngFor="let rilev of rilevcn; last as last">
+            <h4 mat-line>PID: {{rilev.PIDv}}</h4>
+            <h4 mat-line>Data val.: {{rilev.datav}}</h4>
+            <h4 mat-line>Data ril.: {{rilev.data}}</h4>
+            <p mat-line class="demo-2"> {{rilev.notav}} </p>
+            <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
+         </mat-list-item>
+      </mat-list>
+  </div>
+
+  <div class="ex2" style="background:silver;color:black">
+      <mat-list>
+         <h3 mat-subheader>Terapie</h3>
+         <mat-list-item *ngFor="let rilev of trp; last as last">
+            <h4 mat-line>Data : {{rilev.data}}</h4>
+            <h4 mat-line>PID medico: {{rilev.PID_medico}}</h4>
+            <p mat-line class="demo-2"> {{rilev.nota}} </p>
+            <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
+         </mat-list-item>
+      </mat-list>
+  </div>
+
+<div class="center" style="color:black">
+  <table style="width:100%">
+    <tr>
+      <td>ID paz:{{paz.ID}}</td>
+      <td>Nome: {{paz.nome}}</td>
+      <td>Cognome: {{paz.cognome}}</td>
+      <td>Num. Tel.: {{paz.num_tel}}</td>
+      <td>Data Nascita: {{paz.data_nascita}}</td>
+    </tr>
+    <tr>
+      <td>Luogo Nascita:{{paz.luogo_nascita}}</td>
+      <td>Residenza: {{paz.residenza}}</td>
+      <td>Sesso:{{paz.sesso}} </td>
+      <td>Peso: {{paz.peso}}</td>
+      <td>Altezza: {{paz.altezza}}</td>
+    </tr>
+    <tr>
+      <td>Cl. Grav.: {{paz.class_gravita}}</td>
+      <td>Cl. NYHA: {{paz.class_NYHA}}</td>
+      <td>Cl. INTERMACS:{{paz.class_INTERMACS}} </td>
+      <td>Tipologia:{{paz.tipologia}} </td>
+      <td>PID Medico:{{paz.PID_medico}} </td>
+    </tr>
+  </table>
+
+  <form [formGroup]="trpForm" (ngSubmit)="onSubmit()">
+    <div>
+    <p style="font-weight:bold"> Terapia: </p>
+    <textarea name="name"  rows="10" cols="70" formControlName="trp" required ></textarea>
+</div>
+<input type="submit" value="Inserisci terapia" >
+      </form>
+
+
+</div>
+</body>
+<html>

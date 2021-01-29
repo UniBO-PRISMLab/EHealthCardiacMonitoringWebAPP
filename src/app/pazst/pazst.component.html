@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+div.ex1 {
+  height: 600px;
+  width: 20%;
+  overflow-x: auto;
+  overflow-y: auto;
+  float:left;
+}
+
+div.ex2 {
+  height: 600px;
+  width: 60%;
+  overflow-y: auto;
+  float:left;
+}
+
+div.ex3 {
+
+  height: 600px;
+  width: 20%;
+  overflow-y: auto;
+  float:right;
+}
+
+</style>
+</head>
+<body>
+  <div class="ex1">
+    <h3>Parametri ultimi 30 giorni</h3>
+    <div class="flex-item">
+      <div style="display: block">
+        <canvas baseChart width=auto height=300px
+          [datasets]="pressChartData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [colors]="lineChartColors"
+          [plugins]="barChartPlugins"
+          [legend]="barChartLegend"
+          [chartType]="barChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)">
+        </canvas>
+      </div>
+    </div>
+    <div class="flex-item">
+      <div style="display: block;">
+      <canvas baseChart width=auto height=300px
+                  [datasets]="pesoChartData"
+                  [labels]="lineChartLabels"
+                  [options]="lineChartOptions"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+    <div class="flex-item">
+      <div style="display: block;">
+      <canvas baseChart width=auto height=300px
+                  [datasets]="freqChartData"
+                  [labels]="lineChartLabels"
+                  [options]="lineChartOptions"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+    <div class="flex-item">
+      <div style="display: block;">
+      <canvas baseChart width=auto height=300px
+                  [datasets]="passiChartData"
+                  [labels]="lineChartLabels"
+                  [options]="lineChartOptions"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+    <div class="flex-item">
+      <div style="display: block;">
+      <canvas baseChart width=auto height=300px
+                  [datasets]="rpmChartData"
+                  [labels]="lineChartLabels"
+                  [options]="lineChartOptions"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+    <div class="flex-item">
+      <div style="display: block;">
+      <canvas baseChart width=auto height=300px
+                  [datasets]="wChartData"
+                  [labels]="lineChartLabels"
+                  [options]="lineChartOptions"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+    <div class="flex-item">
+      <div style="display: block;">
+      <canvas baseChart width=auto height=300px
+                  [datasets]="flChartData"
+                  [labels]="lineChartLabels"
+                  [options]="lineChartOptions"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+    <div class="flex-item">
+      <div style="display: block;">
+      <canvas baseChart width=auto height=300px
+                  [datasets]="piccoChartData"
+                  [labels]="lineChartLabels"
+                  [options]="lineChartOptions"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+    <div class="flex-item">
+      <div style="display: block;">
+      <canvas baseChart width=auto height=300px
+                  [datasets]="PIChartData"
+                  [labels]="lineChartLabels"
+                  [options]="lineChartOptions"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="ex2">
+    <p>Rilevazioni da validare</p>
+    <div class="example-container mat-elevation-z8">
+      <table mat-table [dataSource]="rilevsn">
+
+        <ng-container matColumnDef="ID" sticky>
+          <th mat-header-cell *matHeaderCellDef> ID </th>
+          <td mat-cell *matCellDef="let element"> {{element.ID}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="ID_paz">
+          <th mat-header-cell *matHeaderCellDef> ID_paz </th>
+          <td mat-cell *matCellDef="let element"> {{element.ID_paz}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="data">
+          <th mat-header-cell *matHeaderCellDef> Data </th>
+          <td mat-cell *matCellDef="let element" > {{element.data}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="peso">
+          <th mat-header-cell *matHeaderCellDef> Peso </th>
+          <td mat-cell *matCellDef="let element"> {{element.peso}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="frequenza">
+          <th mat-header-cell *matHeaderCellDef> Frequenza </th>
+          <td mat-cell *matCellDef="let element"> {{element.frequenza}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="pressione">
+          <th mat-header-cell *matHeaderCellDef> Pressione </th>
+          <td mat-cell *matCellDef="let element"> {{element.pressione}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="passi">
+          <th mat-header-cell *matHeaderCellDef> Passi </th>
+          <td mat-cell *matCellDef="let element"> {{element.passi}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="rpm">
+          <th mat-header-cell *matHeaderCellDef> RPM </th>
+          <td mat-cell *matCellDef="let element"> {{element.rpm}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="watt">
+          <th mat-header-cell *matHeaderCellDef> Watt </th>
+          <td mat-cell *matCellDef="let element"> {{element.watt}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="flusso">
+          <th mat-header-cell *matHeaderCellDef> Flusso </th>
+          <td mat-cell *matCellDef="let element"> {{element.flusso}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="picco">
+          <th mat-header-cell *matHeaderCellDef> Picco </th>
+          <td mat-cell *matCellDef="let element"> {{element.picco}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="depressione">
+          <th mat-header-cell *matHeaderCellDef> Depressione </th>
+          <td mat-cell *matCellDef="let element"> {{element.depressione}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="PI">
+          <th mat-header-cell *matHeaderCellDef> PI </th>
+          <td mat-cell *matCellDef="let element"> {{element.PI}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="allarme">
+          <th mat-header-cell *matHeaderCellDef> Allarme </th>
+          <td mat-cell *matCellDef="let element"> {{element.allarme}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="allarme_aut">
+          <th mat-header-cell *matHeaderCellDef> Allarme aut </th>
+          <td mat-cell *matCellDef="let element"> {{element.allarme_aut}} </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="example-element-row"
+        (click)="onRowClicked(row)"></tr>
+      </table>
+    </div>
+    <table style="width:100%,text-align:left;font-size:80%;">
+      <tr>
+        <td>ID: {{ril.ID}}</td>
+        <td>ID_paz: {{ril.ID_paz}}</td>
+        <td>Data: {{ril.data}}</td>
+        <td>Peso: {{ril.peso}}</td>
+        <td>Frequenza: {{ril.frequenza}}</td>
+        <td>Pressione: {{ril.pressione}}</td>
+      </tr>
+      <tr>
+        <td>Watt: {{ril.watt}}</td>
+        <td>Flusso: {{ril.flusso}}</td>
+        <td>Picco: {{ril.picco}} </td>
+        <td>Depres.: {{ril.depressione}}</td>
+        <td>PI: {{ril.PI}}</td>
+        <td>Passi: {{ril.passi}}</td>
+      </tr>
+      <tr>
+        <td>RPM: {{ril.rpm}}</td>
+        <td>Allar.: {{ril.allarme}}</td>
+        <td>Allar. aut: {{ril.allarme_aut}} </td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+
+
+
+
+
+
+
+
+    <form [formGroup]="rilForm" (ngSubmit)="onSubmit()">
+      <div>
+      <p style="font-weight:bold">  Nota: </p>
+        <textarea name="name" rows="8" cols="80" formControlName="nota" required></textarea>
+      <input type="submit" value="Inserisci nota">
+    </div>
+
+      </form>
+
+
+  </div>
+  <div class="ex3" style="background:silver">
+      <mat-list>
+         <h3 mat-subheader>Note Rilevazioni</h3>
+         <mat-list-item *ngFor="let rilev of rilevcn; last as last">
+            <h4 mat-line>PID: {{rilev.PIDv}}</h4>
+            <h4 mat-line>Data val.: {{rilev.datav}}</h4>
+            <h4 mat-line>Data ril.: {{rilev.data}}</h4>
+            <p mat-line class="demo-2"> {{rilev.notav}} </p>
+            <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
+         </mat-list-item>
+      </mat-list>
+  </div>
+</body>
+</html>

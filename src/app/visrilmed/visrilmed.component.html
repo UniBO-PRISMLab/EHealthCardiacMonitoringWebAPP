@@ -1,0 +1,14 @@
+<div class="logtxt">
+  <h5> Inserisci ID paziente </h5>
+<form [formGroup]="pazForm" (ngSubmit)="onSubmit()">
+  <label>
+    ID:
+    <input type="text" formControlName="id" required>
+  </label>
+
+  <button type="submit" [disabled]="!pazForm.valid">Cerca</button>
+
+  </form>
+
+  <app-paztrp *ngIf="src&&this.paz!=null" [paz]="paz"></app-paztrp>
+</div>

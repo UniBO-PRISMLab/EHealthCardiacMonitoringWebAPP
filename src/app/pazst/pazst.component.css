@@ -1,0 +1,43 @@
+td{
+  width:25%;
+    text-align: center;
+}
+th{
+  width:3%;
+  font-size: 80%;
+    height: 50px;
+  text-align: center;
+
+}
+
+table th,td{
+  padding: 8px;
+  text-align: left;
+  font-size:85%;
+  border-bottom: 2px solid #ddd;
+}
+ng-container{
+  margin:80px;
+  width:5px;
+
+  border: 1px solid black;
+}
+
+.mat-column-ID,.mat-column-ID_paz,.mat-column-data,.mat-column-peso,.mat-column-frequenza,.mat-column-rpm,.mat-column-watt,.mat-column-picco,.mat-column-PI,.mat-column-flusso{
+  width:5%;
+  padding:8px;
+  text-align:center;
+
+}
+.mat-column-pressione,.mat-column-nota,.mat-column-passi,.mat-column-allarme_aut,.mat-column-allarme,.mat-column-depressione{
+  width:5%;
+  padding:8px;
+  text-align:center;
+}
+tr.example-element-row:hover{
+  background:grey;
+}
+
+.mat-column-ID{
+  background: grey;
+}

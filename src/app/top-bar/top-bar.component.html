@@ -1,0 +1,13 @@
+<div class="topbar">
+<h1 class="topbart">HEART</h1>
+<div class="tpbarb">
+<a [routerLink]="['/profilo']">
+<img src="../../assets/profilo.png" title="profilo" alt="profilo" width="30" height="30" style= "vertical-align:buttom">
+</a>
+<br>
+<br>
+<button mat-button (click)="logout()" color="primary">Logout</button>
+<p *ngIf="this.user">PID: {{this.user.PID}}</p>
+<p *ngIf="this.user">CAT: {{this.user.Categoria}}</p>
+</div>
+</div>

@@ -1,0 +1,57 @@
+<div class="logtxt">
+<h1>Esportazione Rilevazioni in file CSV</h1>
+
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <label>
+    Periodo:
+    <label>
+      da:
+<input type="date" class="form-control" formControlName="dt1" />
+  </label>
+  <label>
+    a:
+  <input type="date" class="form-control" formControlName="dt2" />
+</label>
+  </label>
+  <br>
+  </form>
+
+  <form class="frmdu"  (ngSubmit)="onSubmit()" #utlForm="ngForm">
+ <label for="pz">
+    Paziente:
+    <select class="form-control" id="pz"
+           required
+           [(ngModel)]="paz.ID" name="pz"
+           #pm="ngModel">
+    <option *ngFor="let cat of pz" [value]="cat">{{cat}}</option>
+    </select>
+      </label>
+      <br>
+    <label for="">Se non viene selezionato alcun paziente, estre i dati di tutti i pazienti</label>
+<br>
+  <button type="submit">Estrai</button>
+</form>
+</div>
+
+
+<div class="logtxt">
+<h1>Esportazione terapie in file CSV</h1>
+
+<form  (ngSubmit)="onSubmitrp()" >
+
+ <label for="pztrp">
+    Paziente:
+    <select class="form-control" id="pztrp"
+           required
+           [(ngModel)]="ID_paz" name="pztrp"
+           #pm="ngModel">
+    <option *ngFor="let cat of pz" [value]="cat">{{cat}}</option>
+    </select>
+      </label>
+      <br>
+    <label for="">Se non viene selezionato alcun paziente, estre i dati di tutti i pazienti</label>
+<br>
+  <button type="submit">Estrai terapie</button>
+</form>
+
+</div>
